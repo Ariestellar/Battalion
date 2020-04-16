@@ -122,10 +122,10 @@ TextureImporter:
       name: UIElements_2
       rect:
         serializedVersion: 2
-        x: 1945
-        y: 455
+        x: 1943
+        y: 437
         width: 40
-        height: 57
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,6 +156,27 @@ TextureImporter:
       bones: []
       spriteID: 3ab97bd2ea38cad30800000000000000
       internalID: 4444071716422392739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIElements_1
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 424
+        width: 219
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638dbb5c208f95970800000000000000
+      internalID: 8744292842307573814
       vertices: []
       indices: 
       edges: []
