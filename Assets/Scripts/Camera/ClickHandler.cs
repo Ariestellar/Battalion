@@ -2,8 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Camera))]
-[RequireComponent(typeof(CameraMovement))]
+[RequireComponent(typeof(Camera), typeof(CameraMovement))]
 public class ClickHandler : MonoBehaviour
 {    
     [SerializeField] private GameObject _selectedCurrentObject;
@@ -12,7 +11,7 @@ public class ClickHandler : MonoBehaviour
     private CameraMovement _cameraMovement;
     private Camera _camera;
     private Vector3 _touchPosition;
-
+    
     public UnityAction NewSquadPositionSet;
 
     private void Awake()
@@ -52,17 +51,16 @@ public class ClickHandler : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector3.back);
         if (hit != false)
         {  
-            _selectedCurrentObject = hit.collider.gameObject;
-            Debug.Log(_selectedCurrentObject);
-            if (_selectedCurrentObject.GetComponent<Squad>())
+            _selectedCurrentObject = hit.collider.gameObject;            
+            if (_selectedCurrentObject.GetComponent<SquadPlayer>())
             {
                 CheckSelectSquad();
             }
             else if (_selectedCurrentObject.name == "TacticalCardPaper")
             {
                 if (_selectedBattalion != null)
-                {
-                    _selectedBattalion.GetComponent<Squad>().SquadData.TargetPosition = touchPosition;
+                {                   
+                    _selectedBattalion.GetComponent<SquadPlayer>().SetTargetPosition(touchPosition);
                     NewSquadPositionSet?.Invoke();
                 }                                                
             }
@@ -84,20 +82,20 @@ public class ClickHandler : MonoBehaviour
     {
         if (_selectedBattalion == null)
         {
-            _selectedCurrentObject.GetComponent<Squad>().Select(true);
+            _selectedCurrentObject.GetComponent<SquadPlayer>().Select(true);
             _selectedBattalion = _selectedCurrentObject;
         }
         else if (_selectedBattalion != null)
         {
             if (_selectedBattalion == _selectedCurrentObject)
             {
-                _selectedCurrentObject.GetComponent<Squad>().Select(false);
+                _selectedCurrentObject.GetComponent<SquadPlayer>().Select(false);
                 _selectedBattalion = null;
             } 
             else if (_selectedBattalion != _selectedCurrentObject) 
             {
-                _selectedBattalion.GetComponent<Squad>().Select(false);
-                _selectedCurrentObject.GetComponent<Squad>().Select(true);                
+                _selectedBattalion.GetComponent<SquadPlayer>().Select(false);
+                _selectedCurrentObject.GetComponent<SquadPlayer>().Select(true);                
                 _selectedBattalion = _selectedCurrentObject;
             }
         }        

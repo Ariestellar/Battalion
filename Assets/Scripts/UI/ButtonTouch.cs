@@ -10,12 +10,12 @@ public class ButtonTouch : MonoBehaviour
     [SerializeField] private Button _atackZoneRed;
     [SerializeField] private Button _trigger;
 
-    public void Init(GameObject squad)
+    public void Init(SquadControlPanel squad)
     {
-        _trigger.onClick.AddListener(squad.GetComponent<SquadControlPanel>().FireCommand);
-        _atackZoneGreen.onClick.AddListener(() => squad.GetComponent<SquadControlPanel>().ChangeAttackZone(2));
-        _atackZoneYellow.onClick.AddListener(() => squad.GetComponent<SquadControlPanel>().ChangeAttackZone(1));
-        _atackZoneRed.onClick.AddListener(() => squad.GetComponent<SquadControlPanel>().ChangeAttackZone(0));
+        _trigger.onClick.AddListener(squad.FireCommand);
+        _atackZoneGreen.onClick.AddListener(() => squad.ChangeAttackZone(2));
+        _atackZoneYellow.onClick.AddListener(() => squad.ChangeAttackZone(1));
+        _atackZoneRed.onClick.AddListener(() => squad.ChangeAttackZone(0));
     }
 
     public void OnDisable()
