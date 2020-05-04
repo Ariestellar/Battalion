@@ -13,6 +13,7 @@ public class SquadData : ScriptableObject
     [SerializeField] private TypeArmy _typeArmy;
 
     [SerializeField] private float _size;
+    [SerializeField] private float _numberRows;
 
     [SerializeField] private GameObject _squad;
     [SerializeField] private GameObject _zoneAttackView;    
@@ -52,6 +53,7 @@ public class SquadData : ScriptableObject
     public GameObject Highlighting { get => _highlighting; set => _highlighting = value; }
     public float Size { get => _size; set => _size = value; }
     public GameObject SquadFiller { get => _squadFiller; set => _squadFiller = value; }
+    public float NumberRows { get => _numberRows; set => _numberRows = value; }
 
     public static SquadData CreateSquadData(String name, Side side, ClickHandler clickHandler, GameObject squadUI)
     {        
@@ -67,6 +69,7 @@ public class SquadData : ScriptableObject
         Side = side;
         _name = name;
         _size = 100;
+        _numberRows = 2;
         _speedMove = 0.5f;
         _speedRotate = 10f;
         _activeAttackZone = 2;

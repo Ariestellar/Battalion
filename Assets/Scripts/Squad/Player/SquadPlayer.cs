@@ -57,9 +57,9 @@ public class SquadPlayer : MonoBehaviour, Squad
         _squadSelected.Switch(value);        
     }
 
-    public void ReduceSquadSize(float number)
+    public void ReduceSquadSize(float hitProbability, float angleAttack)
     {
-        _squadData.Size -= number;
+        _squadData.Size -= Mathf.Round(GetAmountDamage(angleAttack) * hitProbability);
         _squadData.SquadFiller.GetComponent<SquadFiller>().SetFillBar(_squadData.Size / 100);
         _squadWeapon.ReduceAtackZoneSize(_squadData.Size / 100);
     }
@@ -89,5 +89,17 @@ public class SquadPlayer : MonoBehaviour, Squad
         _squadControlPanelUI.GetComponent<ButtonTouch>().OnDisable();
         _squadControlPanel._giveCommandFire -= _squadWeapon.Fire;
         _squadControlPanel._setAttackZone -= _squadSelected.SetHighlightZoneAttack;
-    }    
+    }
+
+    private float GetAmountDamage(float angleAttack)
+    {
+        if (angleAttack == 0 || angleAttack == 180)
+        {
+            return _squadData.Size / _squadData.NumberRows;
+        }
+        else
+        {
+            return _squadData.Size * ((90 - angleAttack) / 90 )/ _squadData.NumberRows + _squadData.NumberRows - 1;
+        }
+    }
 }

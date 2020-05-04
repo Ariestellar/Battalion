@@ -16,6 +16,7 @@ MonoBehaviour:
   _side: 0
   _typeArmy: 0
   _size: 0
+  _numberRows: 0
   _squad: {fileID: 0}
   _zoneAttackView: {fileID: 0}
   _highlighting: {fileID: 0}

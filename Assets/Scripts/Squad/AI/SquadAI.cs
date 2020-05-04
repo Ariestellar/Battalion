@@ -31,9 +31,9 @@ public class SquadAI : MonoBehaviour, Squad
         
     }
 
-    public void ReduceSquadSize(float number)
+    public void ReduceSquadSize(float hitProbability, float angleAttack)
     {
-        _squadData.Size -= number;
+        _squadData.Size -= hitProbability;
         _squadData.SquadFiller.GetComponent<SquadFiller>().SetFillBar(_squadData.Size / 100);
         _squadWeapon.ReduceAtackZoneSize(_squadData.Size / 100);
     }
