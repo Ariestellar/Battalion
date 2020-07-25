@@ -21,19 +21,12 @@ public class LevelGenerated : MonoBehaviour
         _squadUI = CreateSquadUI();
 
         SquadFactory squadFactory = GetSquadFactory(Side.Player);
-        squadFactory.CreateSquad(_squadUI, "Battalion" + 1 + "Player", new Vector3(0, 0, -1), TypeArmy.Infantry);
-        squadFactory.CreateSquad(_squadUI, "Battalion" + 2 + "Player", new Vector3(0, 3, -1), TypeArmy.Infantry);
-        /*for (int i = 0; i < _countSquadPlayer; i++)
-        {
-            _squadListPlayer.Add(squadFactory.CreateSquad(_squadUI, "Battalion" + (i + 1) + "Player", new Vector3(i, 0, -1), TypeArmy.Infantry));
-        }*/
-
-        /*squadFactory = GetSquadFactory(Side.AI);
-
-        for (int i = 0; i < _countSquadAI; i++)
-        {
-            _squadListAI.Add(squadFactory.CreateSquad(_squadUI, "Battalion" + (i + 1) + "AI", new Vector3(i, 2, -1), TypeArmy.Infantry));
-        }*/
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 1 + "Player", new Vector3(-3, 0, -1), TypeArmy.Infantry);
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 2 + "Player", new Vector3(-3, 1, -1), TypeArmy.Infantry);
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 3 + "Player", new Vector3(0, 0, -1), TypeArmy.Infantry);
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 4 + "Player", new Vector3(0, 2, -1), TypeArmy.Infantry);
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 5 + "Player", new Vector3(3, 0, -1), TypeArmy.Infantry);
+        squadFactory.CreateSquad(_squadUI, "Battalion" + 6 + "Player", new Vector3(3, 3, -1), TypeArmy.Infantry);
     }
 
     private GameObject CreateSquadUI()

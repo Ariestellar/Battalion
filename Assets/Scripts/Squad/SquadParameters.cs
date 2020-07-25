@@ -16,4 +16,12 @@ namespace SquadParameters
         Сavalry,
         Artillery
     }
+
+    public enum FactorSquad
+    { 
+        HitInZone,
+        HitsIndividualSoldiers,
+        Сhance,
+        RemotenessLine
+    }
 }

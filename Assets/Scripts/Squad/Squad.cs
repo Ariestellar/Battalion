@@ -9,5 +9,5 @@ public interface Squad
 
     void Select(bool value);
 
-    void ReduceSquadSize(float hitProbability, float angleAttack);
+    void ReduceSquadSize(float angleAttack, int numberSuccessfulShots);
 }

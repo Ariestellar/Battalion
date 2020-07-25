@@ -32,9 +32,9 @@ public class SquadControlPanel : MonoBehaviour
         if (_squadData.IsReadinessShot == true)
         {
             _giveCommandFire?.Invoke();
-            _squadData.IsShot = true;
+            //_squadData.IsShot = true;
             _animatorTrigger.ShiftTrigger();            
-            _squadData.IsReadinessShot = false;
+            //_squadData.IsReadinessShot = false;
         }     
     }
 }

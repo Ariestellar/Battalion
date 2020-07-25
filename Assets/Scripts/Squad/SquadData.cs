@@ -11,6 +11,7 @@ public class SquadData : ScriptableObject
     [SerializeField] private String _name;
     [SerializeField] private Side _side;
     [SerializeField] private TypeArmy _typeArmy;
+    [SerializeField] private Dictionary<FactorSquad, float> _factor;
 
     [SerializeField] private float _size;
     [SerializeField] private float _numberRows;
@@ -25,7 +26,7 @@ public class SquadData : ScriptableObject
 
     [SerializeField] private float _speedMove;//0.02 = 1м/сек. При масштабе: юнит = 50 метров.
     [SerializeField] private float _speedRotate;
-    [SerializeField] private int _activeAttackZone;
+    [SerializeField] private int _activeAttackZone;    
     [SerializeField] private bool _isShot;
     [SerializeField] private bool _isReadinessShot;
     [SerializeField] private bool _isHighlighting;
@@ -44,7 +45,7 @@ public class SquadData : ScriptableObject
     public bool IsRotating { get => _isRotating; set => _isRotating = value; }
     public Vector3 TargetPosition { get => _targetPosition; set => _targetPosition = value; }
     public Vector3 CurrentPosition { get => _currentPosition; set => _currentPosition = value; }
-    public Side Side { get => _side; set => _side = value; }
+    public Side Side { get => _side; set => _side = value; }    
     public GameObject SquadUI { get => _squadUI; set => _squadUI = value; }
     public ClickHandler ClickHandler { get => _clickHandler; set => _clickHandler = value; }
     public GameObject Squad { get => _squad; set => _squad = value; }
@@ -53,7 +54,8 @@ public class SquadData : ScriptableObject
     public GameObject Highlighting { get => _highlighting; set => _highlighting = value; }
     public float Size { get => _size; set => _size = value; }
     public GameObject SquadFiller { get => _squadFiller; set => _squadFiller = value; }
-    public float NumberRows { get => _numberRows; set => _numberRows = value; }
+    public float NumberRows { get => _numberRows; set => _numberRows = value; }   
+    public Dictionary<FactorSquad, float> Factor { get => _factor; set => _factor = value; }
 
     public static SquadData CreateSquadData(String name, Side side, ClickHandler clickHandler, GameObject squadUI)
     {        
@@ -72,7 +74,7 @@ public class SquadData : ScriptableObject
         _numberRows = 2;
         _speedMove = 0.5f;
         _speedRotate = 10f;
-        _activeAttackZone = 2;
+        _activeAttackZone = 2;        
         _isShot = false;
         _isReadinessShot = true;
         _isHighlighting = false;
@@ -80,5 +82,12 @@ public class SquadData : ScriptableObject
         _isRotating = false;
         ClickHandler = clickHandler;
         _squadUI = squadUI;
+        _factor = new Dictionary<FactorSquad, float>
+        {
+            [FactorSquad.HitInZone] = 1f,
+            [FactorSquad.HitsIndividualSoldiers] = 0.5f,
+            [FactorSquad.Сhance] = 0.1f,
+            [FactorSquad.RemotenessLine] = 1f,
+        };
     } 
 }

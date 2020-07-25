@@ -1006,7 +1006,7 @@ MonoBehaviour:
     type: 3}
   _prefabSquadArtillery: {fileID: 0}
   _prefabSquadCavalry: {fileID: 0}
-  _clickHandler: {fileID: 0}
+  _clickHandler: {fileID: 519420033}
 --- !u!1 &1472179612
 GameObject:
   m_ObjectHideFlags: 0
